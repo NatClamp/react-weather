@@ -3,19 +3,22 @@ import React, { Component } from 'react';
 
 class CityOptions extends Component {
   render() {
-    return <select onChange={this.handleChange}>
-        <option>Choose City</option>
+    return (
+      <select onChange={this.handleChange}>
+        <option>London</option>
         {this.props.data.map(area => {
-            return (
-                <option key={area.id} value={area.name}>{area.name}</option>
-            )
+          return (
+            <option key={area.id} value={area.name}>
+              {area.name}
+            </option>
+          );
         })}
-    </select>
+      </select>
+    );
   }
-handleChange = event => {
-    return this.props.chooseArea(event.target.value)
-}
-
+  handleChange = event => {
+    return this.props.chooseArea(event.target.value);
+  };
 }
 
 // CityOptions.propTypes = {};
