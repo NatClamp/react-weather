@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Weather</h1>
+        <h1>UK City 5-day temperature Trends</h1>
         <CityOptions data={data} chooseArea={this.chooseArea} />
         {this.state.areaWeather.length > 0 && (
           <Chart areaWeather={this.state.areaWeather}/>
