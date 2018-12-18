@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 class Chart extends Component {
   render() {
     const { areaWeather } = this.props
-    return <div className='graph'><Line data={this.createGraph(areaWeather)} /></div>;
+    return <div className='graph'><Line data={this.createGraph(areaWeather)} options={this.createOptions()}/></div>;
   }
 
   formatData = areaWeather => {
@@ -46,6 +46,27 @@ class Chart extends Component {
     };
     return graph;
   };
+
+createOptions = () => {
+    return {
+        scales: {
+            xAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Time'
+                }
+            }],
+            yAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Temperature (degrees celcius)'
+                }
+            }]
+        }
+    }
+
+}
+
 }
 
 Chart.propTypes = {
