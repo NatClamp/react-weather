@@ -1,0 +1,164 @@
+[
+    {
+        "id": 2643743,
+        "name": "London",
+        "country": "GB",
+        "coord": {
+          "lon": -0.12574,
+          "lat": 51.50853
+        }
+      },
+      {
+        "id": 2652249,
+        "name": "Coulsdon",
+        "country": "GB",
+        "coord": {
+          "lon": -0.14088,
+          "lat": 51.320019
+        }
+      },
+      {
+        "id": 2650228,
+        "name": "Edgware",
+        "country": "GB",
+        "coord": {
+          "lon": -0.27539,
+          "lat": 51.612801
+        }
+      },
+      {
+        "id": 2633975,
+        "name": "Wickham",
+        "country": "GB",
+        "coord": {
+          "lon": -1.18815,
+          "lat": 50.899239
+        }
+      },
+      {
+        "id": 2640331,
+        "name": "Pevensey",
+        "country": "GB",
+        "coord": {
+          "lon": 0.33963,
+          "lat": 50.81966
+        }
+      },
+      {
+        "id": 2634341,
+        "name": "City of Westminster",
+        "country": "GB",
+        "coord": {
+          "lon": -0.11667,
+          "lat": 51.5
+        }
+      },
+      {
+        "id": 2636147,
+        "name": "Teddington",
+        "country": "GB",
+        "coord": {
+          "lon": -0.33053,
+          "lat": 51.422329
+        }
+      },
+      {
+        "id": 2637490,
+        "name": "Southall",
+        "country": "GB",
+        "coord": {
+          "lon": -0.3713,
+          "lat": 51.508961
+        }
+      },
+      {
+        "id": 2637063,
+        "name": "Stanmore",
+        "country": "GB",
+        "coord": {
+          "lon": -0.31667,
+          "lat": 51.616669
+        }
+      },
+      {
+        "id": 2646004,
+        "name": "Isleworth",
+        "country": "GB",
+        "coord": {
+          "lon": -0.34246,
+          "lat": 51.475182
+        }
+      },
+      {
+        "id": 2640275,
+        "name": "Pinner",
+        "country": "GB",
+        "coord": {
+          "lon": -0.38216,
+          "lat": 51.593842
+        }
+      },
+      {
+        "id": 2647972,
+        "name": "Greenford",
+        "country": "GB",
+        "coord": {
+          "lon": -0.35508,
+          "lat": 51.52866
+        }
+      },
+      {
+        "id": 2647550,
+        "name": "Hampton",
+        "country": "GB",
+        "coord": {
+          "lon": -0.36684,
+          "lat": 51.421051
+        }
+      },
+      {
+        "id": 2633655,
+        "name": "Woodford Green",
+        "country": "GB",
+        "coord": {
+          "lon": 0.02329,
+          "lat": 51.609379
+        }
+      },
+      {
+        "id": 2653229,
+        "name": "Chessington",
+        "country": "GB",
+        "coord": {
+          "lon": -0.30427,
+          "lat": 51.3624
+        }
+      },
+      {
+        "id": 2637347,
+        "name": "South Petherton",
+        "country": "GB",
+        "coord": {
+          "lon": -2.80708,
+          "lat": 50.948292
+        }
+      },
+      {
+        "id": 2647297,
+        "name": "Hawick",
+        "country": "GB",
+        "coord": {
+          "lon": -2.78666,
+          "lat": 55.422729
+        }
+      },
+      {
+        "id": 2648299,
+        "name": "Gorleston-on-Sea",
+        "country": "GB",
+        "coord": {
+          "lon": 1.73069,
+          "lat": 52.573009
+        }
+      }
+]
