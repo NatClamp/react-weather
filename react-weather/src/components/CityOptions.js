@@ -5,7 +5,7 @@ class CityOptions extends Component {
   render() {
     return (
       <select onChange={this.handleChange}>
-        <option>London</option>
+        <option>Choose a city</option>
         {this.props.data.map(area => {
           return (
             <option key={area.id} value={area.name}>

@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
-import '../App.css'
-import PropTypes from 'prop-types';
 
-class Chart extends Component {
-  render() {
-    const { areaWeather } = this.props
-    return <div className='graph'><Line data={this.createGraph(areaWeather)} options={this.createOptions()}/></div>;
-  }
 
-  formatData = areaWeather => {
-    return areaWeather.reduce((acc, measurement) => {
-      acc[measurement.dt_txt] = ((measurement.temp) - 273).toFixed(1);
-      return acc;
-    }, {});
-  };
+class RainGraph extends Component {
+    render() {
+        const { areaWeather } = this.props
+        return (
+            <div className='graph'>
+                <Line data={this.createGraph(areaWeather)} options={this.createOptions()}/>
+            </div>
+        );
+    }
+    formatData = areaWeather => {
+        return areaWeather.reduce((acc, measurement) => {
+        if (measurement.rain) acc[measurement.dt_txt] = measurement.rain;
+        return acc;
+        }, {});
+    }
 
-  createGraph = (areaWeather)  => {
-    const graphData = this.formatData(areaWeather);
-    const graph = {
-      labels: Object.keys(graphData),
-      datasets: [
+    createGraph = (areaWeather) => {
+        const graphData = this.formatData(areaWeather);
+        const graph = {
+            labels: Object.keys(graphData),
+            datasets: [
         {
           label: areaWeather[0].city,
           fill: false,
@@ -45,7 +47,7 @@ class Chart extends Component {
       ],
     };
     return graph;
-  };
+    }
 
 createOptions = () => {
     return {
@@ -59,7 +61,7 @@ createOptions = () => {
             yAxes: [{
                 scaleLabel: {
                     display: true,
-                    labelString: 'Temperature (degrees celsius)'
+                    labelString: 'Rainfall (mm)'
                 }
             }]
         }
@@ -67,10 +69,7 @@ createOptions = () => {
 
 }
 
+
 }
 
-Chart.propTypes = {
-  areaWeather: PropTypes.array.isRequired,
-};
-
-export default Chart;
+export default RainGraph;
