@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import CityOptions from './components/CityOptions';
 import WeatherOptions from './components/WeatherOptions';
-import Chart from './components/Chart';
+import Chart from './components/TempGraph';
 import RainGraph from './components/RainGraph';
 import data from './data/cityCodes.json';
 import { WEATHER_KEY } from './config.js';
@@ -13,16 +13,31 @@ class App extends Component {
     areaWeather: [],
     currentCityName: 'London',
     currentCityID: '2643743',
-    currentWeatherType: 'temperature'
+    currentWeatherType: 'temperature',
   };
   render() {
     return (
-      <div className="App">
-        <h1>UK City 5-day temperature Trends</h1>
-        <CityOptions data={data} chooseArea={this.chooseArea} />
-        <WeatherOptions chooseWeather={this.chooseWeather}/>
-        {this.state.areaWeather.length > 0 && this.state.currentWeatherType === 'temperature' && (<Chart areaWeather={this.state.areaWeather}/>)}
-        {this.state.areaWeather.length > 0 && this.state.currentWeatherType === 'precipitation' && <RainGraph areaWeather={this.state.areaWeather}/>}
+      <div className='App'>
+        <h1>UK City 5-day weather trends</h1>
+        <section>
+          <CityOptions
+            data={data}
+            chooseArea={this.chooseArea}
+            className='cityDrop'
+          />
+          <WeatherOptions
+            chooseWeather={this.chooseWeather}
+            className='weatherDrop'
+          />
+        </section>
+        {this.state.areaWeather.length > 0 &&
+          this.state.currentWeatherType === 'temperature' && (
+            <Chart areaWeather={this.state.areaWeather} />
+          )}
+        {this.state.areaWeather.length > 0 &&
+          this.state.currentWeatherType === 'precipitation' && (
+            <RainGraph areaWeather={this.state.areaWeather} />
+          )}
       </div>
     );
   }
@@ -36,7 +51,7 @@ class App extends Component {
       )
       .then(({ data }) => {
         let result = data.list.map(measurement => {
-          let time = '3h'
+          let time = '3h';
           let obj = {};
           obj.city = this.state.currentCityName;
           obj.dt_txt = measurement.dt_txt;
@@ -73,13 +88,14 @@ class App extends Component {
   };
 
   chooseWeather = chosenWeatherType => {
-    this.setState({
-      currentWeatherType: chosenWeatherType
-    },
-    () => {
-      this.fetchWeather();
-    }
-    )
-  }
+    this.setState(
+      {
+        currentWeatherType: chosenWeatherType,
+      },
+      () => {
+        this.fetchWeather();
+      },
+    );
+  };
 }
 export default App;
