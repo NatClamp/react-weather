@@ -9,17 +9,47 @@
   font-weight: 700;
 }
 
-section {
+section.select {
   width: 50vw;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-.cityDrop {
+section.currentDetails {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
-.weatherDrop {
+p.currCity {
+  font-size: 1.5em;
+  padding: 10px;
+  margin: 0;
+}
+p.desc {
+  font-size: 1em;
+  margin: 0;
+  color: grey;
+}
+
+section.TempRange {
+  width: 20vw;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+p.minTemp,
+p.maxTemp {
+  font-size: 1.5em;
+  color: grey;
+}
+
+p.currTemp {
+  font-size: 3em;
 }
 
 .graph {

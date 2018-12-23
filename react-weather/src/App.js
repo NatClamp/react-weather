@@ -5,6 +5,7 @@ import CityOptions from './components/CityOptions';
 import WeatherOptions from './components/WeatherOptions';
 import Chart from './components/TempGraph';
 import RainGraph from './components/RainGraph';
+import CurrentCityDetails from './components/CurrentCityDetails';
 import data from './data/cityCodes.json';
 import { WEATHER_KEY } from './config.js';
 
@@ -19,7 +20,7 @@ class App extends Component {
     return (
       <div className='App'>
         <h1>UK City 5-day weather trends</h1>
-        <section>
+        <section className='select'>
           <CityOptions
             data={data}
             chooseArea={this.chooseArea}
@@ -30,6 +31,12 @@ class App extends Component {
             className='weatherDrop'
           />
         </section>
+        {this.state.areaWeather.length > 0 && (
+          <CurrentCityDetails
+            areaWeather={this.state.areaWeather}
+            city={this.state.currentCityName}
+          />
+        )}
         {this.state.areaWeather.length > 0 &&
           this.state.currentWeatherType === 'temperature' && (
             <Chart areaWeather={this.state.areaWeather} />
@@ -59,6 +66,9 @@ class App extends Component {
           if (measurement.rain[time]) {
             obj.rain = measurement.rain[time];
           }
+          obj.mintemp = measurement.main.temp_min;
+          obj.maxtemp = measurement.main.temp_max;
+          obj.desc = measurement.weather[0].description;
           return obj;
         });
         this.setState({
