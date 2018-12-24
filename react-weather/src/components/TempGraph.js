@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
-import '../App.css'
+import '../App.css';
 import PropTypes from 'prop-types';
 
 class Chart extends Component {
   render() {
-    const { areaWeather } = this.props
-    return <div className='graph'><Line data={this.createGraph(areaWeather)} options={this.createOptions()}/></div>;
+    const { areaWeather } = this.props;
+    return (
+      <div className='graph'>
+        <Line
+          data={this.createGraph(areaWeather)}
+          options={this.createOptions()}
+          height={350}
+          width={600}
+        />
+      </div>
+    );
   }
 
   formatData = areaWeather => {
     return areaWeather.reduce((acc, measurement) => {
-      acc[measurement.dt_txt] = ((measurement.temp) - 273).toFixed(1);
+      acc[measurement.dt_txt] = (measurement.temp - 273).toFixed(1);
       return acc;
     }, {});
   };
 
-  createGraph = (areaWeather)  => {
+  createGraph = areaWeather => {
     const graphData = this.formatData(areaWeather);
     const graph = {
       labels: Object.keys(graphData),
@@ -47,26 +56,29 @@ class Chart extends Component {
     return graph;
   };
 
-createOptions = () => {
+  createOptions = () => {
     return {
-        scales: {
-            xAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Time'
-                }
-            }],
-            yAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Temperature (degrees celsius)'
-                }
-            }]
-        }
-    }
-
-}
-
+      // maintainAspectRatio: false,
+      scales: {
+        xAxes: [
+          {
+            scaleLabel: {
+              display: true,
+              labelString: 'Time',
+            },
+          },
+        ],
+        yAxes: [
+          {
+            scaleLabel: {
+              display: true,
+              labelString: 'Temperature (degrees celsius)',
+            },
+          },
+        ],
+      },
+    };
+  };
 }
 
 Chart.propTypes = {

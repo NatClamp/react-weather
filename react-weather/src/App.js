@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <h1>UK City 5-day weather trends</h1>
+        <h1 className='header'>UK City 5-day weather trends</h1>
         <section className='select'>
           <CityOptions
             data={data}

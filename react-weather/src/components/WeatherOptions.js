@@ -6,7 +6,11 @@ class WeatherOptions extends Component {
     return (
       <>
         <label htmlFor='weatherSelect'>Choose a weather variable: </label>
-        <select onChange={this.handleChange} id='weatherSelect'>
+        <select
+          onChange={this.handleChange}
+          id='weatherSelect'
+          className='weatherInput'
+        >
           <option>Temperature</option>
           <option value={'precipitation'}>Precipitation</option>
         </select>

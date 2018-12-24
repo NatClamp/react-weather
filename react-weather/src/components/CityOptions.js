@@ -6,7 +6,11 @@ class CityOptions extends Component {
     return (
       <>
         <label htmlFor='citySelect'>Choose a city: </label>
-        <select onChange={this.handleChange} id='citySelect'>
+        <select
+          onChange={this.handleChange}
+          id='citySelect'
+          className='cityInput'
+        >
           <option>London</option>
           {this.props.data.map(area => {
             if (area.name !== 'London')

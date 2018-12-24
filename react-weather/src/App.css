@@ -1,5 +1,32 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
 
+/* colour palette */
+:root {
+  --bgBlue: #edead0;
+  --darkBlue: #1e9292;
+  --lightBlue: #aedcdc;
+  --darkText: #156666;
+}
+
+/* resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* background */
+html {
+  height: 100vh;
+  width: 100vw;
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    152deg,
+    rgba(34, 193, 195, 1) 25%,
+    rgba(7, 119, 115, 1) 88%
+  );
+}
+
 .App {
   text-align: center;
   display: flex;
@@ -7,30 +34,51 @@
   align-items: center;
   font-family: 'Merriweather', serif;
   font-weight: 700;
+  background: white;
+  margin: 50px auto;
+  max-width: 800px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  color: var(--darkText);
+  overflow: hidden;
+  padding: 50px;
+}
+
+.header {
+  padding: 20px;
 }
 
 section.select {
-  width: 50vw;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  /* border: black 1px solid; */
+}
+
+.cityInput,
+.weatherInput {
+  border: none;
+  background: transparentize(var(--lightBlue, 0.9));
 }
 
 section.currentDetails {
   display: flex;
   flex-direction: column;
   padding: 20px;
+  /* border: black 1px solid; */
 }
 
 p.currCity {
   font-size: 1.5em;
   padding: 10px;
   margin: 0;
+  /* border: black 1px solid; */
 }
 p.desc {
   font-size: 1em;
   margin: 0;
   color: grey;
+  /* border: black 1px solid; */
 }
 
 section.TempRange {
@@ -40,19 +88,22 @@ section.TempRange {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  /* border: black 1px solid; */
 }
 
 p.minTemp,
 p.maxTemp {
   font-size: 1.5em;
   color: grey;
+  border: black 1px solid;
 }
 
 p.currTemp {
   font-size: 3em;
+  border: black 1px solid;
 }
 
 .graph {
-  width: 80vw;
   padding-top: 20px;
+  /* border: black 1px solid; */
 }
