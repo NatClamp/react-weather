@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
+import moment from 'moment';
 
 class RainGraph extends Component {
   render() {
@@ -17,7 +18,10 @@ class RainGraph extends Component {
   }
   formatData = areaWeather => {
     return areaWeather.reduce((acc, measurement) => {
-      if (measurement.rain) acc[measurement.dt_txt] = measurement.rain;
+      if (measurement.rain) {
+        let time = moment(measurement.dt_txt).format('ddd h:mm a');
+        acc[time] = measurement.rain;
+      }
       return acc;
     }, {});
   };
@@ -55,6 +59,9 @@ class RainGraph extends Component {
 
   createOptions = () => {
     return {
+      legend: {
+        display: false,
+      },
       scales: {
         xAxes: [
           {

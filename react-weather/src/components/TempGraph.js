@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
 import '../App.css';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 class Chart extends Component {
   render() {
@@ -20,7 +21,8 @@ class Chart extends Component {
 
   formatData = areaWeather => {
     return areaWeather.reduce((acc, measurement) => {
-      acc[measurement.dt_txt] = (measurement.temp - 273).toFixed(1);
+      let time = moment(measurement.dt_txt).format('ddd h:mm a');
+      acc[time] = (measurement.temp - 273).toFixed(1);
       return acc;
     }, {});
   };
@@ -58,13 +60,21 @@ class Chart extends Component {
 
   createOptions = () => {
     return {
-      // maintainAspectRatio: false,
+      legend: {
+        display: false,
+      },
       scales: {
         xAxes: [
           {
             scaleLabel: {
               display: true,
               labelString: 'Time',
+              type: 'time',
+              time: {
+                displayFormats: {
+                  day: 'MMM D',
+                },
+              },
             },
           },
         ],
@@ -72,7 +82,7 @@ class Chart extends Component {
           {
             scaleLabel: {
               display: true,
-              labelString: 'Temperature (degrees celsius)',
+              labelString: 'Temperature (°c)',
             },
           },
         ],

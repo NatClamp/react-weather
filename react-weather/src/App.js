@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <h1 className='header'>UK City 5-day weather trends</h1>
+        <h1 className='header'>UK weather trends</h1>
         <section className='cityDropDown'>
           <CityOptions data={data} chooseArea={this.chooseArea} />
         </section>
@@ -67,7 +67,7 @@ class App extends Component {
           obj.city = this.state.currentCityName;
           obj.dt_txt = measurement.dt_txt;
           obj.temp = measurement.main.temp;
-          if (measurement.rain[time]) {
+          if (measurement.rain) {
             obj.rain = measurement.rain[time];
           }
           obj.mintemp = measurement.main.temp_min;
