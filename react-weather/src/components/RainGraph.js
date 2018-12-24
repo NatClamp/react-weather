@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
 
-
 class RainGraph extends Component {
-    render() {
-        const { areaWeather } = this.props
-        return (
-            <div className='graph'>
-                <Line data={this.createGraph(areaWeather)} options={this.createOptions()}/>
-            </div>
-        );
-    }
-    formatData = areaWeather => {
-        return areaWeather.reduce((acc, measurement) => {
-        if (measurement.rain) acc[measurement.dt_txt] = measurement.rain;
-        return acc;
-        }, {});
-    }
+  render() {
+    const { areaWeather } = this.props;
+    return (
+      <div className='graph'>
+        <Line
+          data={this.createGraph(areaWeather)}
+          options={this.createOptions()}
+          height={350}
+          width={600}
+        />
+      </div>
+    );
+  }
+  formatData = areaWeather => {
+    return areaWeather.reduce((acc, measurement) => {
+      if (measurement.rain) acc[measurement.dt_txt] = measurement.rain;
+      return acc;
+    }, {});
+  };
 
-    createGraph = (areaWeather) => {
-        const graphData = this.formatData(areaWeather);
-        const graph = {
-            labels: Object.keys(graphData),
-            datasets: [
+  createGraph = areaWeather => {
+    const graphData = this.formatData(areaWeather);
+    const graph = {
+      labels: Object.keys(graphData),
+      datasets: [
         {
           label: areaWeather[0].city,
           fill: false,
@@ -47,29 +51,30 @@ class RainGraph extends Component {
       ],
     };
     return graph;
-    }
+  };
 
-createOptions = () => {
+  createOptions = () => {
     return {
-        scales: {
-            xAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Time'
-                }
-            }],
-            yAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Rainfall (mm)'
-                }
-            }]
-        }
-    }
-
-}
-
-
+      scales: {
+        xAxes: [
+          {
+            scaleLabel: {
+              display: true,
+              labelString: 'Time',
+            },
+          },
+        ],
+        yAxes: [
+          {
+            scaleLabel: {
+              display: true,
+              labelString: 'Rainfall (mm)',
+            },
+          },
+        ],
+      },
+    };
+  };
 }
 
 export default RainGraph;

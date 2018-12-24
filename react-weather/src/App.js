@@ -20,31 +20,35 @@ class App extends Component {
     return (
       <div className='App'>
         <h1 className='header'>UK City 5-day weather trends</h1>
-        <section className='select'>
-          <CityOptions
-            data={data}
-            chooseArea={this.chooseArea}
-            className='cityDrop'
-          />
+        <section className='cityDropDown'>
+          <CityOptions data={data} chooseArea={this.chooseArea} />
+        </section>
+        <nav className='nav-weather-option'>
           <WeatherOptions
             chooseWeather={this.chooseWeather}
-            className='weatherDrop'
+            currentWeatherType={this.state.currentWeatherType}
           />
+        </nav>
+        <section className='currCityTemps'>
+          {' '}
+          {this.state.areaWeather.length > 0 && (
+            <CurrentCityDetails
+              areaWeather={this.state.areaWeather}
+              city={this.state.currentCityName}
+            />
+          )}
         </section>
-        {this.state.areaWeather.length > 0 && (
-          <CurrentCityDetails
-            areaWeather={this.state.areaWeather}
-            city={this.state.currentCityName}
-          />
-        )}
-        {this.state.areaWeather.length > 0 &&
-          this.state.currentWeatherType === 'temperature' && (
-            <Chart areaWeather={this.state.areaWeather} />
-          )}
-        {this.state.areaWeather.length > 0 &&
-          this.state.currentWeatherType === 'precipitation' && (
-            <RainGraph areaWeather={this.state.areaWeather} />
-          )}
+        <section className='graphs'>
+          {' '}
+          {this.state.areaWeather.length > 0 &&
+            this.state.currentWeatherType === 'temperature' && (
+              <Chart areaWeather={this.state.areaWeather} />
+            )}
+          {this.state.areaWeather.length > 0 &&
+            this.state.currentWeatherType === 'precipitation' && (
+              <RainGraph areaWeather={this.state.areaWeather} />
+            )}
+        </section>
       </div>
     );
   }
