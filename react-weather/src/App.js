@@ -30,7 +30,6 @@ class App extends Component {
           />
         </nav>
         <section className='currCityTemps'>
-          {' '}
           {this.state.areaWeather.length > 0 && (
             <CurrentCityDetails
               areaWeather={this.state.areaWeather}
@@ -39,7 +38,6 @@ class App extends Component {
           )}
         </section>
         <section className='graphs'>
-          {' '}
           {this.state.areaWeather.length > 0 &&
             this.state.currentWeatherType === 'temperature' && (
               <Chart areaWeather={this.state.areaWeather} />
