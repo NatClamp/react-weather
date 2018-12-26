@@ -56,7 +56,7 @@ class App extends Component {
       .get(
         `https://api.openweathermap.org/data/2.5/forecast?id=${
           this.state.currentCityID
-        }&APPID=${WEATHER_KEY}`,
+        }&APPID=${process.env.REACT_APP_API_KEY}`,
       )
       .then(({ data }) => {
         let result = data.list.map(measurement => {
