@@ -54,7 +54,7 @@ class App extends Component {
   fetchWeather = () => {
     return axios
       .get(
-        `http://api.openweathermap.org/data/2.5/forecast?id=${
+        `https://api.openweathermap.org/data/2.5/forecast?id=${
           this.state.currentCityID
         }&APPID=${WEATHER_KEY}`,
       )
