@@ -7,7 +7,7 @@ import Chart from './components/TempGraph';
 import RainGraph from './components/RainGraph';
 import CurrentCityDetails from './components/CurrentCityDetails';
 import data from './data/cityCodes.json';
-import { WEATHER_KEY } from './config.js';
+// import { WEATHER_KEY } from './config.js';
 
 class App extends Component {
   state = {
