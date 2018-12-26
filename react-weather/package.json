@@ -27,5 +27,8 @@
   ],
   "devDependencies": {
     "moment": "^2.23.0"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }
