@@ -8,7 +8,11 @@ The app has been deployed using netlify. You can find it at [nfc-weather.netlify
 
 ## Run locally
 
-To run this app locally on your machine, clone this repo. Once ready, use the command
+To run this app locally on your machine, clone this repo.
+
+Use the command `npm i` to install the required dependencies.
+
+Once ready, use the command
 
 ```
 source .env
