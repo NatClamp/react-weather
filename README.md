@@ -12,17 +12,13 @@ To run this app locally on your machine, clone this repo.
 
 Use the command `npm i` to install the required dependencies.
 
-Once ready, use the command
+You'll need to get yourself an account over at []() and put your API key into a file named `.env` with your API key inside as a variable, just like:
 
 ```
-source .env
+export REACT_APP_API_KEY='<PUT YOUR API KEY HERE>'
 ```
 
-and then the command
-
-```
-npm start
-```
+Once ready, use the command `source .env` and then the command `npm start`.
 
 This will open the app up on your localhost port.
 
