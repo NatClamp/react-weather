@@ -7,7 +7,7 @@ import Chart from './components/TempGraph';
 import RainGraph from './components/RainGraph';
 import CurrentCityDetails from './components/CurrentCityDetails';
 import data from './data/cityCodes.json';
-// import { WEATHER_KEY } from './config.js';
+import REACT_APP_API_KEY from './config';
 
 class App extends Component {
   state = {
@@ -18,18 +18,18 @@ class App extends Component {
   };
   render() {
     return (
-      <div className='App'>
-        <h1 className='header'>UK weather trends</h1>
-        <section className='cityDropDown'>
+      <div className="App">
+        <h1 className="header">UK weather trends</h1>
+        <section className="cityDropDown">
           <CityOptions data={data} chooseArea={this.chooseArea} />
         </section>
-        <nav className='nav-weather-option'>
+        <nav className="nav-weather-option">
           <WeatherOptions
             chooseWeather={this.chooseWeather}
             currentWeatherType={this.state.currentWeatherType}
           />
         </nav>
-        <section className='currCityTemps'>
+        <section className="currCityTemps">
           {this.state.areaWeather.length > 0 && (
             <CurrentCityDetails
               areaWeather={this.state.areaWeather}
@@ -37,7 +37,7 @@ class App extends Component {
             />
           )}
         </section>
-        <section className='graphs'>
+        <section className="graphs">
           {this.state.areaWeather.length > 0 &&
             this.state.currentWeatherType === 'temperature' && (
               <Chart areaWeather={this.state.areaWeather} />
@@ -56,7 +56,11 @@ class App extends Component {
       .get(
         `https://api.openweathermap.org/data/2.5/forecast?id=${
           this.state.currentCityID
-        }&APPID=${process.env.REACT_APP_API_KEY}`,
+        }&APPID=${
+          process.env.REACT_APP_API_KEY !== undefined
+            ? process.env.REACT_APP_API_KEY
+            : REACT_APP_API_KEY
+        }`,
       )
       .then(({ data }) => {
         let result = data.list.map(measurement => {
