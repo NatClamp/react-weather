@@ -7,7 +7,7 @@ import Chart from './components/TempGraph';
 import RainGraph from './components/RainGraph';
 import CurrentCityDetails from './components/CurrentCityDetails';
 import data from './data/cityCodes.json';
-import REACT_APP_API_KEY from './config';
+// import REACT_APP_API_KEY from './config';
 
 class App extends Component {
   state = {
@@ -57,9 +57,10 @@ class App extends Component {
         `https://api.openweathermap.org/data/2.5/forecast?id=${
           this.state.currentCityID
         }&APPID=${
-          process.env.REACT_APP_API_KEY !== undefined
-            ? process.env.REACT_APP_API_KEY
-            : REACT_APP_API_KEY
+          // process.env.REACT_APP_API_KEY !== undefined
+            // ? 
+            process.env.REACT_APP_API_KEY
+            // : REACT_APP_API_KEY
         }`,
       )
       .then(({ data }) => {

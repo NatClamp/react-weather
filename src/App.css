@@ -17,8 +17,6 @@
 
 /* background */
 html {
-  height: 100vh;
-  width: 100vw;
   background: rgb(34, 193, 195);
   background: linear-gradient(
     152deg,
